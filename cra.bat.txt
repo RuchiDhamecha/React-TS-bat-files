@@ -1,0 +1,6 @@
+call npm init vite@latest %1 -- --template react-ts
+cd %1
+call npm install
+call npm i sass axios
+call code .
+echo done

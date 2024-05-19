@@ -1,0 +1,29 @@
+REM Create component files
+set component_name=%1
+set current_directory=%cd%
+set component_folder=%current_directory%\%component_name%
+mkdir "%component_folder%"
+echo Creating component files for %component_name% in %current_directory%...
+
+REM Create .tsx file
+echo import styles from "./%component_name%.module.scss"; > "%component_folder%\%component_name%.tsx"
+echo import { %component_name%Props } from "./%component_name%.types.ts" >> "%component_folder%\%component_name%.tsx"
+echo. >> "%component_folder%\%component_name%.tsx"
+echo const %component_name% = ({}: %component_name%Props) =^> { >> "%component_folder%\%component_name%.tsx"
+echo    ^return <div^></div^>; >> "%component_folder%\%component_name%.tsx"
+echo } >> "%component_folder%\%component_name%.tsx"
+echo. >> "%component_folder%\%component_name%.tsx"
+echo export default %component_name% >> "%component_folder%\%component_name%.tsx"
+
+REM echo. > %component_folder%\%component_name%.tsx
+REM echo Created %component_name%.tsx
+
+REM Create .module.scss file
+echo. > %component_folder%\%component_name%.module.scss
+echo Created %component_name%.module.scss
+
+REM Create .types.ts file
+echo. export interface %component_name%Props {} > %component_folder%\%component_name%.types.ts
+echo Created %component_name%.types.ts
+
+echo Component files created successfully in %current_directory%.
